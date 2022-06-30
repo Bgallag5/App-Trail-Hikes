@@ -10,16 +10,16 @@ export default function hikes() {
 
   const writeNewUser = async () => {
     const placeholderUserData = {
-      username: "Ben A",
-      email: "bAmail@gmail.com",
-      password: "password1234",
+      username: "Paul G",
+      email: "pmail@gmail.com",
+      password: "password12rdf34",
     };
     //1. send POST request to firebase
     const response = await createNewUser(placeholderUserData);
     console.log(response);
     //2. If response.idToken: dispatch 'LOGIN_USER', ...response.data, newUser.userId: response.idToken
 
-    if (!response.idToken) return;
+    if (!response?.idToken) return;
     const newUser = {
      ...placeholderUserData,
      userId: response.localId

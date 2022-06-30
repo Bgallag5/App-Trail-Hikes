@@ -25,11 +25,14 @@ const database = getDatabase(app);
 ////GET
 //fetch all users in DB
 export const getAllUsers = async () => {
+  let allUsers;
   const dbRef = ref(getDatabase());
-  get(child(dbRef, `users`))
+  await get(child(dbRef, `users`))
     .then((snapshot) => {
       if (snapshot.exists()) {
-        console.log(snapshot.val());
+        allUsers = snapshot.val();
+        console.log(allUsers);
+        // return allUsers;
       } else {
         console.log("No data available");
       }
@@ -37,6 +40,8 @@ export const getAllUsers = async () => {
     .catch((error) => {
       console.error(error);
     });
+    console.log(allUsers);
+  return allUsers;
 };
 
 ////POST
@@ -47,26 +52,36 @@ set(ref(DB, `JSON endpoint to save document`), {
 */
 //create user in DB
 export const createNewUser = async (userData) => {
-
+  //fetch all users
+  const exisitingUsers = await getAllUsers();
+  const existUser = exisitingUsers && [...Object.values(exisitingUsers)].find((user) => {
+    console.log(user);
+    return user.email == userData.email
+  });
+  console.log(existUser);
+  if (existUser){
+    //setAppMessage
+    console.log("USER ALREADY EXISTS IN DB");
+    return
+  }
 
   //set user Auth in FirebaseDB
   const newUser = await signupUser(userData);
   console.log(newUser);
 
-  //if a user is not created, return 
+  //if a user is not created, return
   if (!newUser.idToken) return;
 
   //create user in Firebase DB
-  await set(ref(database, "users/" + `${newUser.localId}`), {
+   set(ref(database, "users/" + `${newUser.localId}`), {
     username: userData.username,
     email: userData.email,
     userId: newUser.localId,
     idToken: newUser.idToken,
   });
-  
+
   return newUser;
 };
-
 
 export const signupUser = async (user) => {
   console.log(user);
@@ -97,6 +112,8 @@ export const signupUser = async (user) => {
   }
 };
 
+const checkExistingUser = (email) => {};
+
 ////PATCH
 
 ////DELETE
@@ -113,5 +130,3 @@ const dummyUsers = [
     userId: "654321",
   },
 ];
-
-
