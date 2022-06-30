@@ -1,23 +1,26 @@
 import { initializeApp } from "firebase/app";
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import { getDatabase, ref, set, child, get } from "firebase/database";
+const FIREBASE_KEY = process.env.REACT_APP_FIREBASE_KEY;
+console.log(FIREBASE_KEY);
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://firebase.google.com/docs/web/learn-more#config-object
 const firebaseConfig = {
-  // ...
-  // The value of `databaseURL` depends on the location of the database
-  databaseURL: "https://app-trail-hikes-default-rtdb.firebaseio.com/",
+  apiKey: "AIzaSyAR3W7bau0SRiILcEBWcOjkJToLy2o_l5Y",
+  authDomain: "app-trail-hikes.firebaseapp.com",
+  //databaseURL: "https://app-trail-hikes-default-rtdb.firebaseio.com/",
+  databaseURL: "https://app-trail-hikes-default-rtdb.firebaseio.com",
+  projectId: "app-trail-hikes",
+  storageBucket: "app-trail-hikes.appspot.com",
+  messagingSenderId: "636435857773",
+  appId: "1:636435857773:web:d0c899df151ab661231a64",
+  measurementId: "G-RG7NW6YRSF",
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
-
-
-export const loginUser = async () => {};
-export const logoutUser = async () => {};
-
 
 ////GET
 //fetch all users in DB
@@ -36,8 +39,6 @@ export const getAllUsers = async () => {
     });
 };
 
-
-
 ////POST
 /*
 set(ref(DB, `JSON endpoint to save document`), {
@@ -46,38 +47,71 @@ set(ref(DB, `JSON endpoint to save document`), {
 */
 //create user in DB
 export const createNewUser = async (userData) => {
-  // const db = getDatabase();
-  // const newUserId = uuidv4();
-  // console.log(newUserId);
-    set(ref(database, "users/" + `${userData.userId}`), {
-      username: userData.username,
-      email: userData.email,
-      userId: userData.userId
-    });
+
+
+  //set user Auth in FirebaseDB
+  const newUser = await signupUser(userData);
+  console.log(newUser);
+
+  //if a user is not created, return 
+  if (!newUser.idToken) return;
+
+  //create user in Firebase DB
+  await set(ref(database, "users/" + `${newUser.localId}`), {
+    username: userData.username,
+    email: userData.email,
+    userId: newUser.localId,
+    idToken: newUser.idToken,
+  });
+  
+  return newUser;
 };
 
 
+export const signupUser = async (user) => {
+  console.log(user);
+  const { email, password } = user;
 
-
-
+  try {
+    const response = await fetch(
+      `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${firebaseConfig.apiKey}`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          email: email,
+          password: password,
+          returnSecureToken: true,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log(response);
+    if (response.ok) {
+      return response.json();
+    }
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+};
 
 ////PATCH
 
-
-
-
 ////DELETE
-
 
 const dummyUsers = [
   {
-    username: 'Ben G',
-    email: 'bmail@gmail.com',
-    userId: '123456',
+    username: "Ben G",
+    email: "bmail@gmail.com",
+    userId: "123456",
   },
   {
-    username: 'Paul G',
-    email: 'pmail@gmail.com',
-    userId: '654321',
-  }
-] 
+    username: "Paul G",
+    email: "pmail@gmail.com",
+    userId: "654321",
+  },
+];
+
+

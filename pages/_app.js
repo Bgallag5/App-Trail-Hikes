@@ -1,7 +1,6 @@
 import Header from "../components/Layout/Header";
 import "/styles/style.css";
 import Sidebar from "../components/Layout/Sidebar/Sidebar";
-import { StoreProvider } from "../store/GlobalStore";
 import { Provider } from "react-redux";
 import { store } from "../store/GlobalStore";
 
