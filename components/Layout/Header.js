@@ -17,7 +17,7 @@ export default function Header() {
             {user.isLoggedIn ? (
               <h3>Welcome {user.username}</h3>
             ) : (
-              <Link href="/new-meetup">Login</Link>
+              <Link href="/login">Login</Link>
             )}
           </li>
         </ul>
