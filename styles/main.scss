@@ -1,21 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.sidebar__item::before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 0%;
-  top: 0;
-  left: 0;
-  background-color: red;
-  transition: all 0.5s;
-  z-index: 1;
-}
 
-.sidebar__item:hover::before {
-  width: 100%;
-}
+@import './base.scss';
+@import './components.scss';
+
+
 
 html,
 body {
@@ -42,10 +32,13 @@ a {
   .content {
     @apply w-full h-auto bg-slate-100;
   }
-  .page-container {
-    @apply w-full h-auto flex bg-slate-100 overflow-scroll relative;
+  .page-container{
+      @apply w-full h-auto flex bg-slate-100 overflow-scroll relative;
   }
 }
+
+
+
 .container {
   height: 100%;
   width: 100%;
@@ -57,5 +50,3 @@ a {
   outline: 1px solid rgba(255, 0, 0, 0.5);
   background: lightblue;
 }
-
-/*# sourceMappingURL=style.css.map */

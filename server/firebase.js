@@ -1,7 +1,10 @@
 import { initializeApp } from "firebase/app";
 import { v4 as uuidv4 } from "uuid";
+// import dotenv from 'dotenv';
+const dotenv = require('dotenv');
+dotenv.config();
 import { getDatabase, ref, set, child, get } from "firebase/database";
-const FIREBASE_KEY = process.env.REACT_APP_FIREBASE_KEY;
+const FIREBASE_KEY = process.env.REACT_APP_FIREBASE_AUTH_KEY;
 console.log(FIREBASE_KEY);
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -70,7 +73,7 @@ export const createNewUser = async (userData) => {
   console.log(newUser);
 
   //if a user is not created, return
-  if (!newUser.idToken) return;
+  if (!newUser?.idToken) return;
 
   //create user in Firebase DB
    set(ref(database, "users/" + `${newUser.localId}`), {
@@ -83,6 +86,7 @@ export const createNewUser = async (userData) => {
   return newUser;
 };
 
+//auth signUp - firebase Authentication
 export const signupUser = async (user) => {
   console.log(user);
   const { email, password } = user;
@@ -111,6 +115,36 @@ export const signupUser = async (user) => {
     return err;
   }
 };
+
+export const loginUser  = async (userData) => {
+  const {email, password } = userData;
+
+
+  try {
+    const response = await fetch(
+      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${firebaseConfig.apiKey}`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          email: email,
+          password: password,
+          returnSecureToken: true,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log(response);
+    if (response.ok) {
+      return response.json();
+    }
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+
+}
 
 const checkExistingUser = (email) => {};
 

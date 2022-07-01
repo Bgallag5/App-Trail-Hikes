@@ -3,6 +3,7 @@ import { dispatch, state } from "../store/GlobalStore";
 import { createNewUser, signupUser } from "../server/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import { loginUser } from "../server/firebase";
 
 export default function hikes() {
   const dispatch = useDispatch();
@@ -10,9 +11,9 @@ export default function hikes() {
 
   const writeNewUser = async () => {
     const placeholderUserData = {
-      username: "Paul G",
-      email: "pmail@gmail.com",
-      password: "password12rdf34",
+      username: "Benny",
+      email: "bmail@gmail.com",
+      password: "password1234",
     };
     //1. send POST request to firebase
     const response = await createNewUser(placeholderUserData);
@@ -27,6 +28,18 @@ export default function hikes() {
     dispatch({ type: "LOGIN_USER", payload: newUser });
   };
 
+async function login(){
+  let user = {
+    email: 'bmail@gmail.com',
+    password: 'password1234'
+  }
+  const response = await loginUser(user);
+  console.log(response);
+
+
+
+}
+
   useEffect(() => {
     console.log(state?.currentUser);
   }, [state.currentUser]);
@@ -38,6 +51,9 @@ export default function hikes() {
       </button>
       <button className="bg-slate-600 h-16 w-32" onClick={() => getAllUsers()}>
         Get Users
+      </button>
+      <button className="bg-slate-600 h-16 w-32" onClick={() => login()}>
+        Login
       </button>
     </div>
   );

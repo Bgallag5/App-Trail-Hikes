@@ -3,8 +3,10 @@ import React from 'react'
 export default function SidebarItem(props) {
     const {name} = props;
   return (
-    <div className='w-full bg-green-800 text-white p-3 flex justify-center mb-1 cursor-pointer hover:scale-100 hover:bg-green-600 transition-all duration-700'>
-        <span>{name}</span>
+    <div className='sidebar__item w-full h-16 bg-green-800 relative text-white p-3 flex justify-center items-center mb-1 cursor-pointer text-center'>
+      {/* <div className='absolute top-0 left-0 h-full w-full hidden bg-red-300 justify-center items-center'> */}
+        <span className='z-30'>{name}</span>
+        {/* </div> */}
     </div>
   )
 }
