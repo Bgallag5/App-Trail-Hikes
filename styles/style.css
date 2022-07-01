@@ -69,11 +69,11 @@ a {
   .app-container {
     @apply bg-slate-100 w-screen min-h-screen overflow-x-hidden;
   }
-  .content {
-    @apply w-full h-auto bg-slate-100 flex flex-col gap-1 p-5;
-  }
   .page-container {
     @apply w-full h-auto flex bg-slate-100 overflow-scroll relative;
+  }
+  .content {
+    @apply w-full h-auto bg-slate-100 flex flex-col gap-1 p-5;
   }
 }
 .test {
