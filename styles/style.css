@@ -22,6 +22,31 @@
   width: 100%;
 }
 
+.wildlife-img {
+  position: absolute !important;
+  height: 65%;
+  width: 50%;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+  border: 1px solid rgb(22, 163, 74);
+  transition: all 0.5s;
+}
+.wildlife-img:hover {
+  z-index: 99;
+  transform: scale(1.01);
+}
+.wildlife-img--1 {
+  top: 0;
+  left: 0;
+}
+.wildlife-img--2 {
+  top: 1rem;
+  right: 1rem;
+}
+.wildlife-img--3 {
+  top: 50%;
+  left: 3rem;
+}
+
 html,
 body {
   padding: 0;
