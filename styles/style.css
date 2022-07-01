@@ -1,6 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.content__title {
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+}
+
 .sidebar__item::before {
   content: "";
   position: absolute;
@@ -40,19 +45,12 @@ a {
     @apply bg-slate-100 w-screen min-h-screen overflow-x-hidden;
   }
   .content {
-    @apply w-full h-auto bg-slate-100;
+    @apply w-full h-auto bg-slate-100 flex flex-col gap-1 p-5;
   }
   .page-container {
     @apply w-full h-auto flex bg-slate-100 overflow-scroll relative;
   }
 }
-.container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
 .test {
   outline: 1px solid rgba(255, 0, 0, 0.5);
   background: lightblue;

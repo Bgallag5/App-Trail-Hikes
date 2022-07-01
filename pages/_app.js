@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <div className="app-container">
-        <div className="w-screen h-screen overflow-y-hidden ">
+        <div className="w-screen h-auto overflow-y-hidden ">
           <Header />
           <div className="flex flex-row h-full w-full ">
             <Sidebar />
