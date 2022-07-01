@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react";
-import homeVid from "../assets/vids/forestmov.mp4";
 import Header from "../components/Layout/Header";
 import Sidebar from "../components/Layout/Sidebar/Sidebar";
-import headerImg from '../assets/images/woods1.jpg';
+import headerImg from '../assets/images/black-forest.png';
+import headerImg2 from '../public/trail-pic-1.jpeg';
 import Image from "next/image";
 
 export default function home() {
@@ -16,8 +16,9 @@ export default function home() {
   return (
     <div className="page-container p-5 flex-col object-cover">
       <div className="relative w-64 h-64">
-        <img className="w-64 h-64" alt="woods" src={headerImg}></img>
-        <Image src={'/assets/images/trail-pic-3.jpeg'} alt='forest' layout="fill" />
+        {/* <img className="w-64 h-64" alt="woods" src={headerImg}></img> */}
+        <Image src={headerImg} alt='forest' layout="fill" />
+        <Image src={headerImg2} alt='forest' layout="fill" />
         {/* <img className="w-64 h-64" src={require(headerImg)}></img> */}
         <img className="w-64 h-64" alt="Woods" src={require("../assets/images/trail-pic-3.jpeg")} />
       </div>
