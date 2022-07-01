@@ -5,8 +5,10 @@ import headerImg from '../assets/images/black-forest.png';
 import headerImg2 from '../public/trail-pic-1.jpeg';
 import Image from "next/image";
 
+
 export default function home() {
   const vidRef = useRef();
+  console.log(process.env.REACT_APP_FIREBASE_AUTH_KEY);
 
   const setPlaybackRate = () => {
     console.log(vidRef.current);
