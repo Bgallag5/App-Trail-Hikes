@@ -2,6 +2,8 @@ import React, { useRef, useEffect } from "react";
 import homeVid from "../assets/vids/forestmov.mp4";
 import Header from "../components/Layout/Header";
 import Sidebar from "../components/Layout/Sidebar/Sidebar";
+import headerImg from '../assets/images/woods1.jpg';
+import Image from "next/image";
 
 export default function home() {
   const vidRef = useRef();
@@ -12,8 +14,14 @@ export default function home() {
   };
 
   return (
-    <div className="page-container p-5 flex-col">
-      <div className="text-center w-full test">
+    <div className="page-container p-5 flex-col object-cover">
+      <div className="relative w-64 h-64">
+        <img className="w-64 h-64" alt="woods" src={headerImg}></img>
+        <Image src={'/assets/images/trail-pic-3.jpeg'} alt='forest' layout="fill" />
+        {/* <img className="w-64 h-64" src={require(headerImg)}></img> */}
+        <img className="w-64 h-64" alt="Woods" src={require("../assets/images/trail-pic-3.jpeg")} />
+      </div>
+      <div className="text-center w-full">
         <div className="text-xl bg-gradient-to-r from-green-700 to-green-300 bg-clip-text">
           <h2 className="text-transparent text-5xl">Appalachian Hikes</h2>
         </div>
