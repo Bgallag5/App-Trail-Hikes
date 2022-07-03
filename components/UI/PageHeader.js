@@ -3,7 +3,6 @@ import PageHeaderImage from './PageHeaderImage';
 
 export default function PageHeader(props) {
     const {imgSrc, imgSrc2, title, subtitle} = props;
-    console.log(title);
 
     
   return (
