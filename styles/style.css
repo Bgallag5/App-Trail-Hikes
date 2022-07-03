@@ -10,6 +10,12 @@
   background-color: rgb(22, 163, 74);
 }
 
+.hidden {
+  display: none;
+  opacity: 0;
+  visibility: none;
+}
+
 .sidebar__item::before {
   content: "";
   position: absolute;
@@ -29,7 +35,7 @@
 .wildlife-img {
   position: absolute !important;
   height: 65%;
-  width: 50%;
+  width: 45%;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
   border: 1px solid rgb(22, 163, 74);
   transition: all 0.5s;
@@ -44,7 +50,7 @@
 }
 .wildlife-img--2 {
   top: 1rem;
-  right: 1rem;
+  right: 20%;
 }
 .wildlife-img--3 {
   top: 50%;

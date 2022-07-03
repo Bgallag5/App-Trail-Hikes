@@ -9,10 +9,8 @@ export default function SidebarItem(props) {
       router.push(path);
     }
 
-    console.log(router);
 
     const activeTab =  router.pathname === path ? 'tab-active' : '';
-    console.log(activeTab);
 
   return (
     <div onClick={() => handleSidebarClick()} className={`${activeTab} sidebar__item w-full h-16 bg-green-800 relative text-white p-3 flex justify-center items-center mb-1 cursor-pointer text-center`}>

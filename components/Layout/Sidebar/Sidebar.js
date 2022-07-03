@@ -9,8 +9,8 @@ export default function Sidebar() {
         <SideBarItem name='Home' path="/home"  /> 
         <SideBarItem name='About' path="/about" />
         <SideBarItem name='Guided Hikes' path="/guided-hikes" />
-        <SideBarItem name='Camping' path="/camping" />
-        <SideBarItem name='Our Guides' path="/guides" />
+        {/* <SideBarItem name='Camping' path="/camping" />
+        <SideBarItem name='Our Guides' path="/guides" /> */}
         </ul>
       </div>
     </div>
