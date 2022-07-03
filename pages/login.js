@@ -22,23 +22,20 @@ export default function hikes() {
 
     if (!response?.idToken) return;
     const newUser = {
-     ...placeholderUserData,
-     userId: response.localId
-    }
+      ...placeholderUserData,
+      userId: response.localId,
+    };
     dispatch({ type: "LOGIN_USER", payload: newUser });
   };
 
-async function login(){
-  let user = {
-    email: 'bmail@gmail.com',
-    password: 'password1234'
+  async function login() {
+    let user = {
+      email: "bmail@gmail.com",
+      password: "password1234",
+    };
+    const response = await loginUser(user);
+    console.log(response);
   }
-  const response = await loginUser(user);
-  console.log(response);
-
-
-
-}
 
   useEffect(() => {
     console.log(state?.currentUser);
@@ -46,15 +43,35 @@ async function login(){
 
   return (
     <div className="page-container">
-      <button className="bg-slate-400 h-16 w-32" onClick={() => writeNewUser()}>
-        Add User
-      </button>
-      <button className="bg-slate-600 h-16 w-32" onClick={() => getAllUsers()}>
-        Get Users
-      </button>
-      <button className="bg-slate-600 h-16 w-32" onClick={() => login()}>
-        Login
-      </button>
+      <div className="flex justify-center h-full w-full items-center">
+        <div className="flex flex-col items-center w-1/3 h-1/4 p-3 justify-center bg-slate-700 rounded gap-2 shadow-slate-900 shadow-lg">
+          <div className="flex flex-col gap-5 w-1/2 mb-4">
+            <input
+              className="rounded p-1 shadow-sm text-slate-900 placeholder-slate-900 outline-none focus:placeholder-slate-400 focus:shadow-emerald-400 "
+              placeholder="Email"
+            />
+            <input
+              className="rounded p-1 shadow-sm shadow-black text-slate-900 placeholder-slate-900 outline-none focus:placeholder-slate-400 focus:shadow-emerald-400"
+              placeholder="Password"
+            />
+          </div>
+          <button
+            className="bg-slate-200 rounded p-3 px-8 hover:bg-slate-400 active:translate-y-[1px]"
+            onClick={() => login()}
+          >
+            Login
+          </button>
+        </div>
+      </div>
     </div>
   );
+}
+
+{
+  /* <button className="bg-slate-400 h-16 w-32" onClick={() => writeNewUser()}>
+Add User
+</button>
+<button className="bg-slate-600 h-16 w-32" onClick={() => getAllUsers()}>
+Get Users
+</button> */
 }

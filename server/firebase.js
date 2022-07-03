@@ -152,15 +152,6 @@ const checkExistingUser = (email) => {};
 
 ////DELETE
 
-const dummyUsers = [
-  {
-    username: "Ben G",
-    email: "bmail@gmail.com",
-    userId: "123456",
-  },
-  {
-    username: "Paul G",
-    email: "pmail@gmail.com",
-    userId: "654321",
-  },
-];
+
+
+
