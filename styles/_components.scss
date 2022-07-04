@@ -1,3 +1,12 @@
+//SIDEBAR
+
+.sidebar{
+    position: sticky;
+    width: 100%;
+    top: 10rem;
+    z-index: 1;
+}
+
 .sidebar__item::before {
   content: "";
   position: absolute;
