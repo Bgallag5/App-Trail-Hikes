@@ -56,8 +56,8 @@ export default function about() {
             </p>
           </div>
 
-          <div className="flex relative flex-col h-full w-1/2 justify-center items-center">
-            <div className="relative h-full w-full ">
+          {/* <div className="flex relative flex-col h-full w-1/2 justify-center items-center"> */}
+            <div className="relative h-full w-1/2 flex justify-center items-center wildlife__images test">
               <img
                 src={wildlifeImg2}
                 alt="wildlife"
@@ -74,7 +74,7 @@ export default function about() {
                 className="wildlife-img wildlife-img--3"
               ></img>
             </div>
-          </div>
+          {/* </div> */}
         </div>
         <WildlifeTabs />
       </div>

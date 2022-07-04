@@ -1,0 +1,24 @@
+.sidebar{
+    position: sticky;
+    width: 100%;
+    top: 10rem;
+    z-index: 1;
+}
+
+.sidebar__item::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  top: 0;
+  left: 0;
+  background-color: rgb(22 163 74);
+  transition: all .5s;
+  z-index: 1;
+}
+
+.sidebar__item:hover {
+  &::before {
+    width: 100%;
+  }
+}

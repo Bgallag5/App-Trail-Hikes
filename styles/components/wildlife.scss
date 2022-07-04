@@ -1,29 +1,16 @@
-//SIDEBAR
-
-.sidebar{
-    position: sticky;
-    width: 100%;
-    top: 10rem;
-    z-index: 1;
+.wildlife--description{
+    clip-path: polygon(0% 0%, 95% 0%, 100% 100%, 0% 100%);
+    padding: 2rem 3rem;
+    shape-outside:polygon(0% 0%, 95% 0%, 100% 100%, 0% 100%) ;
+    transform: translateX(1rem);
 }
 
-.sidebar__item::before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 0%;
-  top: 0;
-  left: 0;
-  background-color: rgb(22 163 74);
-  transition: all .5s;
-  z-index: 1;
+.rules{
+    clip-path: polygon(0% 0, 100% 0, 100% 100%, 10% 100%);
+    shape-outside: polygon(0% 0, 100% 0, 100% 100%, 10% 100%);
+    padding: 2rem 3rem;
 }
 
-.sidebar__item:hover {
-  &::before {
-    width: 100%;
-  }
-}
 
 .wildlife-img{
     position: absolute !important;
