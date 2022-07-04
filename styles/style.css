@@ -39,6 +39,17 @@
   width: 100%;
 }
 
+.tabs-container--overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url("../assets/images/woods1.jpg");
+  background-size: cover;
+  opacity: 0.3;
+}
+
 .wildlife--description {
   clip-path: polygon(0% 0%, 95% 0%, 100% 100%, 0% 100%);
   padding: 2rem 3rem;
@@ -55,7 +66,7 @@
 .wildlife-img {
   position: absolute !important;
   height: 65%;
-  width: 45%;
+  width: 50%;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
   border: 1px solid rgb(22, 163, 74);
   transition: all 0.5s;
@@ -70,7 +81,7 @@
 }
 .wildlife-img--2 {
   top: 1rem;
-  right: 20%;
+  right: 15%;
 }
 .wildlife-img--3 {
   top: 50%;
@@ -103,7 +114,7 @@ a {
     @apply w-full h-auto flex bg-slate-100 overflow-scroll relative;
   }
   .content {
-    @apply w-full h-auto bg-slate-100 flex flex-col gap-1 p-5;
+    @apply w-full h-auto bg-gradient-to-br from-green-100 to-slate-100 flex flex-col gap-1 p-5;
   }
 }
 .test {

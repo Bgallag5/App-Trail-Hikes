@@ -1,3 +1,17 @@
+// @import url('../../assets/images/wildlife3.jpeg');
+
+.tabs-container--overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('../assets/images/woods1.jpg');
+    background-size: cover;
+    // background-color: rgba(255, 255, 255, .5);
+    opacity: .3;
+}
+
 .wildlife--description{
     clip-path: polygon(0% 0%, 95% 0%, 100% 100%, 0% 100%);
     padding: 2rem 3rem;
@@ -17,7 +31,7 @@
     // top: 0;
     // left: 0;
     height: 65%;
-    width: 45%;
+    width: 50%;
     box-shadow: 0 1.5rem 4rem rgba(black, 0.4);
     border: 1px solid rgb( 22 163 74) ;
     transition:  all .5s;
@@ -35,7 +49,7 @@
     }
     &--2{
         top:1rem;
-        right: 20%;
+        right: 15%;
     }
     &--3{
         // top:50%;

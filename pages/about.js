@@ -43,7 +43,7 @@ export default function about() {
         <div className="flex flex-row-reverse h-[40vh] w-10/12 justify-center  gap-1 items-center m-auto">
           <div className="w-1/2 h-full flex flex-col items-start">
             <h2 className="content__title">Wildlife</h2>
-            <p className="w-full ">
+            <p className="w-full">
               GENERAL WILDLIFE BIO - The Appalachian trail offers a variety of
               activities, but most people come for the hiking. Both Day Hiking
               and Muli-Day Hiking, also called Backpacking, are the two most
@@ -57,7 +57,7 @@ export default function about() {
           </div>
 
           {/* <div className="flex relative flex-col h-full w-1/2 justify-center items-center"> */}
-            <div className="relative h-full w-1/2 flex justify-center items-center wildlife__images test">
+            <div className="relative h-full w-1/2 flex justify-center items-center wildlife__images">
               <img
                 src={wildlifeImg2}
                 alt="wildlife"

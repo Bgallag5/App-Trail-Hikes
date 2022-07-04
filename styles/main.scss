@@ -35,7 +35,7 @@ a {
       @apply w-full h-auto flex bg-slate-100 overflow-scroll relative;
   }
   .content {
-    @apply w-full h-auto bg-slate-100 flex flex-col gap-1 p-5;
+    @apply w-full h-auto bg-gradient-to-br from-green-100 to-slate-100 flex flex-col gap-1 p-5;
   }
 }
 
