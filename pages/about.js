@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState, useRef} from "react";
 import imgSrc1 from "../assets/images/trail-pic-3.jpeg";
 import imgSrc2 from "../assets/images/trail-pic-9.jpg";
 
@@ -12,16 +12,30 @@ import PageHeader from "../components/UI/PageHeader";
 import WildlifeTabs from "../components/AboutPage/WildlifeTabs";
 
 export default function about() {
-  // const arrangePics = () => {
+  const popupRef = useRef();
+  const [popupImg, setPopupImg] = useState(undefined);
 
-  // };
+  useEffect(() => {
+    const wildlifePics = document.querySelectorAll('.page-image')
+    console.log(wildlifePics);
+    wildlifePics.forEach(pic => {
+      pic.addEventListener('click', () => {
+        console.log(pic);
 
-  // const wildlifePics = document.querySelectorAll('.wildlife-img').forEach(pic => {
+        setPopupImg(pic.src);
+        popupRef.current.style.visibility = 'visible';
+        popupRef.current.style.background = 'rgba(0, 0, 0, .5)'
+      })
+    })
 
-  // })
+  }, [])
+
 
   return (
     <div className="page-container flex-col">
+      <div ref={popupRef} className="fixed invisible top-0 left-0 h-full w-full bg-[rbga(0, 0, 0, .5)]  z-40 flex flex-col items-center justify-center">
+        <img className="w-1/3 h-auto relative opacity-100 inline-block z-50 border-2 border-green-500 " src={popupImg}></img>
+      </div>
       <PageHeader
         imgSrc={imgSrc1}
         imgSrc2={imgSrc2}
@@ -61,17 +75,17 @@ export default function about() {
               <img
                 src={wildlifeImg2}
                 alt="wildlife"
-                className="wildlife-img wildlife-img--1"
+                className="wildlife-img wildlife-img--1 page-image"
               ></img>
               <img
                 src={wildlifeImg1}
                 alt="wildlife"
-                className="wildlife-img wildlife-img--2"
+                className="wildlife-img wildlife-img--2 page-image"
               ></img>
               <img
                 src={wildlifeImg3}
                 alt="wildlife"
-                className="wildlife-img wildlife-img--3"
+                className="wildlife-img wildlife-img--3 page-image"
               ></img>
             </div>
           {/* </div> */}

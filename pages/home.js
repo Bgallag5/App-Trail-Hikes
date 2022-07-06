@@ -17,7 +17,7 @@ export default function home() {
         title="Appalachian Trail"
         subtitle="Find the Outdoors"
       />
-      <div className="content mx-10">
+      <div className="content">
         <div className="flex flex-row w-full h-[40vh] mt-[3rem] justify-center gap-5 items-center">
           <div className="w-1/2 h-full flex flex-col items-start">
             <h2 className="content__title">Discover the Trail</h2>

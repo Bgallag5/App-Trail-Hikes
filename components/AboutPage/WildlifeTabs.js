@@ -60,7 +60,7 @@ export default function WildlifeTabs() {
         the Appalchian Trail, but other than Bears and Snakes the wildlife
         on the trail is mostly harmless. Commonly seen animals include:
         deer, owls, lizards, racoons, mice, spiders, skunks, bats, foxes,
-        and many more. None of these animals are threatening to humans, and
+        and many more. None of these animals are threatening to humans and
         they tend to keep their distance, and so should you! If you see any
         of these animals while hiking do not try to bother or interact with
         them. The principle of Leave No Trace doesn't just apply to trash,
