@@ -2,10 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @import './utilities.scss';
+@import './typography';
 @import './base.scss';
 @import './components/sidebar';
 @import './components/wildlife';
+@import './pages/about';
 
 
 
