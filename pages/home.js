@@ -7,7 +7,7 @@ import Image from "next/image";
 import discoverImg from "../assets/images/app-map3.png";
 import dayHikeImg from '../assets/images/trail-pic-8.jpeg'; 
 import backpackingImg from '../assets/images/trail-pic-6.jpeg';
-import Footer from "../components/Footer";
+import Footer from "../components/Layout/Footer";
 
 export default function home() {
   return (

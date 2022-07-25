@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import Header from "../components/Layout/Header";
 import "/styles/style.css";
 import Sidebar from "../components/Layout/Sidebar/Sidebar";
+import Footer from '../components/Layout/Footer';
 import { Provider } from "react-redux";
 import { store } from "../store/GlobalStore";
 

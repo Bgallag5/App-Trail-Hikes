@@ -18,11 +18,10 @@ export default function about() {
   const [activeTab, setActiveTab] = useState('wildlife');
 
   useEffect(() => {
-    const wildlifePics = document.querySelectorAll('.page-image')
+    const wildlifePics = document.querySelectorAll('.page-image');
     console.log(wildlifePics);
     wildlifePics.forEach(pic => {
       pic.addEventListener('click', () => {
-
         setPopupImg(pic.src);
         popupRef.current.style.background = 'rgba(0, 0, 0, .5)';
         popupRef.current.classList.remove('hidden')

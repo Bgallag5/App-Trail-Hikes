@@ -101,6 +101,79 @@
   cursor: pointer;
 }
 
+.footer {
+  min-height: 35vh;
+  height: 30rem;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+  border-top: 1px solid rgb(89, 89, 89);
+  border-width: 90;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 10rem;
+}
+.footer__logo {
+  font-size: xx-large;
+  color: rgb(22, 101, 52);
+}
+.footer__half {
+  width: 50%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.footer__half-right {
+  display: flex;
+  gap: 15%;
+  border-left: 1px solid rgb(89, 89, 89);
+}
+.footer__half .footer__resources {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  height: 50%;
+}
+.footer__half h1 {
+  height: 50%;
+}
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  justify-content: start;
+  height: 50%;
+}
+.footer__col-el {
+  cursor: pointer;
+}
+.footer__links {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  font-size: medium !important;
+  cursor: pointer;
+}
+
+.footer-light {
+  font-weight: 500;
+  color: rgb(55, 55, 55);
+}
+
+.footer__bottom {
+  height: min-content;
+  position: absolute;
+  bottom: 0;
+  font-size: x-small;
+}
+
 html,
 body {
   padding: 0;
